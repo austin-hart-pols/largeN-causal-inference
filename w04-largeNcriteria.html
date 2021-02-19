@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Causal inference</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Austin Hart" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Causal inference
+## in large N analysis
+### Austin Hart
+### American University
+
+---
+
+
+
+
+
+
+
+## Statistics and causal inference
+
+- **CAUSAL INFERENCE**: The attribution of an effect to a cause based on the evidence presented.
+
+- **STATISTICS**: Science of analyzing data collected over a large number of observations.
+
+- **INTERNAL VALIDITY**: Extent to which evidence presented supports a causal claim.  
+i.e. can eliminate alternative explanations for a finding. 
+
+
+---
+class: inverse, center, middle
+
+# Criteria for causality
+
+---
+
+# Hurdles to internal validity
+
+Given the argument that A is causing B:
+
+- Is there **evidence that A and B covary**?
+
+- Is there a **credible causal mechanism** linking A to B?
+
+- Can you **rule out the reverse claim**, that B is causing A?
+
+- Can you **rule out confounding variables**, or does A share a common cause with B that makes the relationship spurious?
+
+
+---
+
+# Hurdle 1: covariation
+
+Is there statistical evidence that the two factors, A and B, covary?
+
+- **WHO CARES?** Without it, all you have is an assertion. 
+- **WHAT TO LOOK FOR:** Evidence that A and B 'move together'  
+
+  &gt; "Risk of heart attack among vegetarians was 13% lower than among meat eaters"
+    
+- **RAISING THE ALARM:**  
+
+  &gt; "The study fails to show that A and B are related at all. There is no empirical basis for inferring that A is causing B."  
+
+
+---
+
+# Hurdle 2: causal mechanism
+
+Is there a plausible reason why exposure to A would lead to a response in B?
+
+- **WHO CARES?** Without it, covariation b/w A and B may be coincidental.
+- **WHAT TO LOOK FOR:** Simple explanation
+
+  &gt; "Vegetarian diet is lower in saturated fats which tend to create the blockages that lead to heart attacks"
+  
+- **RAISING THE ALARM:** 
+
+  &gt; "Without a plausible explanation as to how A would cause B, we cannot rule out the possibility that the observed association is purely coincidental."
+
+
+---
+
+# Hurdle 3: reverse causality
+
+Given the claim that A is causing B, can you rule out the opposite interpretation: that B is causing A?
+
+- **WHO CARES?** If not, you cannot distinguish cause from effect.
+- **WHAT TO LOOK FOR:** Evidence that A *precedes* change in B.
+
+  &gt; "Those switching to vegetarian diet saw a 10% reduction in all cause deaths in the first year."
+  
+- **RAISING THE ALARM:**
+
+  &gt; "We cannot rule out the reverse causal claim that B is instead the cause of A."  
+
+---
+
+# Hurdle 4: confounding/selection bias
+
+Can you **rule out confounding variables**, or do exposure (A) and outcome (B) share a common cause?
+
+- **WHO CARES?** Violates "independence" assumption; renders association b/w A and B spurious
+- **WHAT TO LOOK FOR:** Clear evidence of controlling for, conditioning on, factors that differentiate groups of A.  
+
+  &gt; "The analysis controls for respondent age and health history."
+  
+- **RAISING THE ALARM** 
+
+  &gt; "The study fails to control for a common cause of diet and heart health: welath. So the relationship may be spurious, reflecting the fact that wealthy adults are more likely to be vegetarian and, critically, more likely to have healthier hearts independent of their diet."  
+
+---
+
+# Applying the criteria in practice
+
+- **IDENTIFY THE CAUSAL CLAIM**
+
+  &gt; "Eating a plant-based diet reduces risk of heart disease."
+  
+- **WORK THROUGH EACH HURDLE** with reference to the evidence presented.
+- **IDENTIFY AND EXPLAIN ANY VIOLATIONS**
+
+  &gt; "The study fails to control for a common cause of diet and heart health: welath. So the relationship may be spurious, reflecting the fact that wealthy adults are more likely to be vegetarian and, critically, more likely to have healthier hearts independent of their diet."
+
+
+
+---
+class: inverse, center, middle
+
+# Designs for Statistical Analysis
+
+
+---
+
+# Two modes of large-N study
+
+- **EXPERIMENTAL (randomized control trial, RCT)**
+  - Experimenter randomly assigns units to treatment
+  - Experimenter controls exposure to treatment  
+
+- **OBSERVATIONAL (epidemiological)**
+  - Observer records scores on exposure variable
+  - No control over exposure or environment
+
+
+---
+class: center, middle
+
+# Experimental design
+
+---
+
+# Experiments (RCTs)
+
+- **Process**
+  - Gather subjects; RANDOMIZE into treatment groups
+  - Administer treatment in controlled environment
+  - Record outcome; compare across groups  
+  
+- **Why it works**
+  - Randomization! Makes treatment groups identical in expectation
+  - Control! Only the value of treatment variable differentiates groups
+  - Eliminates confounds + rules out reverse causality
+
+
+---
+
+# Experimental example
+
+&gt; *What is the effect of plant-based diet on cholesterol?* 
+&gt;
+&gt; In a double-blind experiment, we randomly assigned 900 institutionalized adult subjects to either a plant-based or omnivorous diet for twelve months. 
+
+
+&lt;img src="w04-largeNcriteria_files/figure-html/plot1-1.svg" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+class: center, middle
+
+# Observational designs
+
+
+---
+
+# Observing (not treating)
+
+- **Process**
+  - Identify sample
+  - Record value on exposure and outcome variables
+  - Comparison across groups, conditional on confounds  
+  
+- **When it works**
+  - *"Strong exogeneity"*:  A way to make the treatment arguably or statistically independent
+  - *Careful supplemental analyses*: Think "Law and Data" approach
+  
+
+---
+
+# Observational remake
+
+&gt; *What is the effect of plant-based diet on cholesterol?* 
+&gt;
+&gt; We surveyed 900 adults about their dietary habits and cholesterol level.  
+
+
+&lt;img src="w04-largeNcriteria_files/figure-html/plot2-1.svg" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Comparing designs: what gives?
+
+- **With random assignment + control**
+  - No systematic differences b/w subjects across groups.
+  - Difference in LDL attributable to only difference: diet  
+    &amp;zwnj;  
+  
+- **With self-selection**
+  - vegetarians are younger, wealthier, more insured, etc.
+  - Difference in LDL attributable to any/all of these things  
+    &amp;zwnj;  
+
+Bottom line: the baseline for internal validity is MUCH higher in with an experimental design.
+
+
+---
+class: inverse, center, middle
+
+# Examples for the week
+
+---
+
+# 1. Cost-sharing and malaria prevention
+
+Cohen and Dupas (2010) "Free distribution or cost-sharing? Evidence from a randomized malaria prevention experiment."
+
+- Causal claim?
+
+- Study design?
+
+- What do we learn from this?
+
+---
+
+# 2. Water fetching and child health
+
+Pickering and Davis (2012) "Freshwater Availability and Water Fetching Distance Affect Child Health in Sub-Saharan Africa."
+
+- Causal claim?
+
+- Study design?
+
+- How do they make fetching distance "exogenous"?
+
+- What do we learn from this?
+
+
+---
+class: center, middle
+
+# Problem Set 1
+
+PS1 is due Monday, February 22.
+
+[Find PS1 here](https://docs.google.com/document/d/1nUE3LVIaPmSoFHvMUBoPJyXfrPST3gmlGw_Oxuv4WDc/edit?usp=sharing)
+
+Submit your completed work on Blackboard.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
