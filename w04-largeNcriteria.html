@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Causal inference</title>
+    <title>Research design</title>
     <meta charset="utf-8" />
     <meta name="author" content="Austin Hart" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -13,10 +13,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Causal inference
-## in large N analysis
+.title[
+# Research design
+]
+.subtitle[
+## and causal inference
+]
+.author[
 ### Austin Hart
+]
+.institute[
 ### American University
+]
 
 ---
 
@@ -28,39 +36,39 @@ class: center, middle, inverse, title-slide
 
 ## Statistics and causal inference
 
-- **CAUSAL INFERENCE**: The attribution of an effect to a cause based on the evidence presented.
+- **CAUSAL INFERENCE**: The attribution of an effect/outcome to a cause based on the evidence presented.
 
 - **STATISTICS**: Science of analyzing data collected over a large number of observations.
 
 - **INTERNAL VALIDITY**: Extent to which evidence presented supports a causal claim.  
-i.e. can eliminate alternative explanations for a finding. 
+i.e. can eliminate alternative explanations, biases, etc., for a finding. 
 
 
 ---
 class: inverse, center, middle
 
-# Criteria for causality
+# Assessing internal validity
 
 ---
 
-# Hurdles to internal validity
+# Criteria for causal inference
 
 Given the argument that A is causing B:
 
-- Is there **evidence that A and B covary**?
+- Is there **evidence that A and B are correlated**?
 
 - Is there a **credible causal mechanism** linking A to B?
 
-- Can you **rule out the reverse claim**, that B is causing A?
+- Can you **rule out bias from reverse causality**, i.e., that B is causing A?
 
-- Can you **rule out confounding variables**, or does A share a common cause with B that makes the relationship spurious?
+- Can you **rule out bias due to confounders**, or does A share a common cause with B that makes the relationship spurious?
 
 
 ---
 
-# Hurdle 1: covariation
+# Hurdle 1: correlation
 
-Is there statistical evidence that the two factors, A and B, covary?
+Is there statistical evidence that A is systematically correlated with B?
 
 - **WHO CARES?** Without it, all you have is an assertion. 
 - **WHAT TO LOOK FOR:** Evidence that A and B 'move together'  
@@ -76,7 +84,7 @@ Is there statistical evidence that the two factors, A and B, covary?
 
 # Hurdle 2: causal mechanism
 
-Is there a plausible reason why exposure to A would lead to a response in B?
+Is there a plausible reason why exposure to A would cause a response in B?
 
 - **WHO CARES?** Without it, covariation b/w A and B may be coincidental.
 - **WHAT TO LOOK FOR:** Simple explanation
@@ -90,7 +98,7 @@ Is there a plausible reason why exposure to A would lead to a response in B?
 
 ---
 
-# Hurdle 3: reverse causality
+# Hurdle 3: bias from reverse causality
 
 Given the claim that A is causing B, can you rule out the opposite interpretation: that B is causing A?
 
@@ -101,7 +109,7 @@ Given the claim that A is causing B, can you rule out the opposite interpretatio
   
 - **RAISING THE ALARM:**
 
-  &gt; "We cannot rule out the reverse causal claim that B is instead the cause of A."  
+  &gt; "We cannot rule out the reverse causal claim that B is the cause of A."  
 
 ---
 
@@ -116,7 +124,8 @@ Can you **rule out confounding variables**, or do exposure (A) and outcome (B) s
   
 - **RAISING THE ALARM** 
 
-  &gt; "The study fails to control for a common cause of diet and heart health: welath. So the relationship may be spurious, reflecting the fact that wealthy adults are more likely to be vegetarian and, critically, more likely to have healthier hearts independent of their diet."  
+  &gt; "The study fails to control for a common cause of diet and heart health: wealth. So the relationship may be spurious, reflecting the fact that wealthy adults are more likely to be vegetarian and, critically, more likely to have healthier hearts independent of their diet."  
+
 
 ---
 
@@ -136,20 +145,19 @@ Can you **rule out confounding variables**, or do exposure (A) and outcome (B) s
 ---
 class: inverse, center, middle
 
-# Designs for Statistical Analysis
+# Designs for Causal Inference
 
 
 ---
 
 # Two modes of large-N study
 
-- **EXPERIMENTAL (randomized control trial, RCT)**
-  - Experimenter randomly assigns units to treatment
-  - Experimenter controls exposure to treatment  
+- **EXPERIMENTAL (RCT/RE)**
+  - Researcher assigns units to treatment at random
+  - Researcher observes outcome in response to treatment
 
 - **OBSERVATIONAL (epidemiological)**
-  - Observer records scores on exposure variable
-  - No control over exposure or environment
+  - Observer records scores on exposure and outcome
 
 
 ---
@@ -159,21 +167,20 @@ class: center, middle
 
 ---
 
-# Experiments (RCTs)
+# Experiments (RCTs, REs)
 
 - **Process**
   - Gather subjects; RANDOMIZE into treatment groups
   - Administer treatment in controlled environment
-  - Record outcome; compare across groups  
+  - Record outcome; evaluate effect  
   
 - **Why it works**
   - Randomization! Makes treatment groups identical in expectation
   - Control! Only the value of treatment variable differentiates groups
-  - Eliminates confounds + rules out reverse causality
+  - Eliminates bias from confounders and reverse causality
 
-
+  
 ---
-
 # Experimental example
 
 &gt; *What is the effect of plant-based diet on cholesterol?* 
@@ -182,6 +189,25 @@ class: center, middle
 
 
 &lt;img src="w04-largeNcriteria_files/figure-html/plot1-1.svg" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# What about external validity?
+
+&gt; **External validity** is the extent to which a study's findings generalize to other settings, treatments, outcomes, and populations.
+
+- History and rise of RCTs/REs
+  - Obvious "unrealism" of lab experiments
+  - Concerns about external validity
+  
+- REs as potential way forward
+  - Study the treatment, outcome, setting of interest
+  - But is this more generalizable?
+  
+- Thinking clearly about experiments
+  - Impact-estimating studies: require realism (REs)
+  - Theory-testing studies: require abstraction
+  
 
 ---
 class: center, middle
@@ -199,8 +225,8 @@ class: center, middle
   - Comparison across groups, conditional on confounds  
   
 - **When it works**
-  - *"Strong exogeneity"*:  A way to make the treatment arguably or statistically independent
-  - *Careful supplemental analyses*: Think "Law and Data" approach
+  - Strong exogeneity: A way to make exposure to the "treatment" arguably or statistically independent
+  - Careful supplemental analyses
   
 
 ---
@@ -234,7 +260,7 @@ Bottom line: the baseline for internal validity is MUCH higher in with an experi
 ---
 class: inverse, center, middle
 
-# Examples for the week
+# Examples from the literature
 
 ---
 
@@ -247,6 +273,7 @@ Cohen and Dupas (2010) "Free distribution or cost-sharing? Evidence from a rando
 - Study design?
 
 - What do we learn from this?
+
 
 ---
 
@@ -266,13 +293,11 @@ Pickering and Davis (2012) "Freshwater Availability and Water Fetching Distance 
 ---
 class: center, middle
 
-# Problem Set 1
+# Problem Set 3
 
-PS1 is due Monday, February 22.
+PS3 is due Wednesday, November 9.
 
-[Find PS1 here](https://docs.google.com/document/d/1nUE3LVIaPmSoFHvMUBoPJyXfrPST3gmlGw_Oxuv4WDc/edit?usp=sharing)
-
-Submit your completed work on Blackboard.
+Submit your completed work on Canvas.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -320,6 +345,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
