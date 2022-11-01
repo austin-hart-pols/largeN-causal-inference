@@ -34,7 +34,7 @@ class: center, middle, inverse, title-slide
 
 
 
-## Statistics and causal inference
+## Key terms for the day
 
 - **CAUSAL INFERENCE**: The attribution of an effect/outcome to a cause based on the evidence presented.
 
@@ -43,11 +43,14 @@ class: center, middle, inverse, title-slide
 - **INTERNAL VALIDITY**: Extent to which evidence presented supports a causal claim.  
 i.e. can eliminate alternative explanations, biases, etc., for a finding. 
 
+- **RESEARCH DESIGN**: Strategy for answering an empirical question. It determines how you collect and analyze data.
+
 
 ---
 class: inverse, center, middle
 
 # Assessing internal validity
+### Is that inference justified?
 
 ---
 
@@ -128,21 +131,6 @@ Can you **rule out confounding variables**, or do exposure (A) and outcome (B) s
 
 
 ---
-
-# Applying the criteria in practice
-
-- **IDENTIFY THE CAUSAL CLAIM**
-
-  &gt; "Eating a plant-based diet reduces risk of heart disease."
-  
-- **WORK THROUGH EACH HURDLE** with reference to the evidence presented.
-- **IDENTIFY AND EXPLAIN ANY VIOLATIONS**
-
-  &gt; "The study fails to control for a common cause of diet and heart health: welath. So the relationship may be spurious, reflecting the fact that wealthy adults are more likely to be vegetarian and, critically, more likely to have healthier hearts independent of their diet."
-
-
-
----
 class: inverse, center, middle
 
 # Designs for Causal Inference
@@ -152,12 +140,13 @@ class: inverse, center, middle
 
 # Two modes of large-N study
 
-- **EXPERIMENTAL (RCT/RE)**
+- **EXPERIMENTAL**
   - Researcher assigns units to treatment at random
   - Researcher observes outcome in response to treatment
 
-- **OBSERVATIONAL (epidemiological)**
+- **OBSERVATIONAL**
   - Observer records scores on exposure and outcome
+  - 'Passive' data collection
 
 
 ---
@@ -167,25 +156,28 @@ class: center, middle
 
 ---
 
-# Experiments (RCTs, REs)
+# Experiments
 
 - **Process**
   - Gather subjects; RANDOMIZE into treatment groups
-  - Administer treatment in controlled environment
+  - Administer treatment
   - Record outcome; evaluate effect  
   
 - **Why it works**
   - Randomization! Makes treatment groups identical in expectation
-  - Control! Only the value of treatment variable differentiates groups
   - Eliminates bias from confounders and reverse causality
 
+- **Flavors of experiments**
+  - Field experiments: randomized evaluations (REs) done in the real world (the field)
+  - Synthetic experiments: laboratory or survey experiments in a carefully-controlled, artificial environment.
+  
   
 ---
 # Experimental example
 
-&gt; *What is the effect of plant-based diet on cholesterol?* 
+&gt; *What is the effect of partial vs full cost sharing on bed net usage?* 
 &gt;
-&gt; In a double-blind experiment, we randomly assigned 900 institutionalized adult subjects to either a plant-based or omnivorous diet for twelve months. 
+&gt; In a randomized evaluation, we randomly assigned 900 expecting mothers to receive an incecticide treated bed net at either fully-subsidized or partially-subsidized price. 
 
 
 &lt;img src="w04-largeNcriteria_files/figure-html/plot1-1.svg" width="50%" style="display: block; margin: auto;" /&gt;
@@ -196,8 +188,8 @@ class: center, middle
 
 &gt; **External validity** is the extent to which a study's findings generalize to other settings, treatments, outcomes, and populations.
 
-- History and rise of RCTs/REs
-  - Obvious "unrealism" of lab experiments
+- History and rise of REs
+  - Obvious unrealism of "synthetic" experiments
   - Concerns about external validity
   
 - REs as potential way forward
@@ -206,7 +198,7 @@ class: center, middle
   
 - Thinking clearly about experiments
   - Impact-estimating studies: require realism (REs)
-  - Theory-testing studies: require abstraction
+  - Theory-testing studies: require abstraction (synthetic)
   
 
 ---
@@ -235,7 +227,7 @@ class: center, middle
 
 &gt; *What is the effect of plant-based diet on cholesterol?* 
 &gt;
-&gt; We surveyed 900 adults about their dietary habits and cholesterol level.  
+&gt; We surveyed 900 expecting mothers about the price at which they purchased an ITN and their usage of it.  
 
 
 &lt;img src="w04-largeNcriteria_files/figure-html/plot2-1.svg" width="50%" style="display: block; margin: auto;" /&gt;
@@ -246,12 +238,12 @@ class: center, middle
 
 - **With random assignment + control**
   - No systematic differences b/w subjects across groups.
-  - Difference in LDL attributable to only difference: diet  
+  - Difference in usage attributable to only difference: price  
     &amp;zwnj;  
   
 - **With self-selection**
-  - vegetarians are younger, wealthier, more insured, etc.
-  - Difference in LDL attributable to any/all of these things  
+  - Choice to purchase driven by, e.g., wealth, access, etc.
+  - Difference in usage attributable to any/all of these things  
     &amp;zwnj;  
 
 Bottom line: the baseline for internal validity is MUCH higher in with an experimental design.
